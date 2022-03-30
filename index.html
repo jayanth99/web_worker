@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html encoding='UTF-8'>
+    <script>
+        // Check if web worker functionality is available for the browser
+        if(window.Worker){
+          
+          // Creating new web worker using constructor
+          var worker = new Worker('worker.js');
+            
+          var message = 'Hello';
+        
+          // Sending the message using postMessage
+          worker.postMessage(message);
+            
+          // On response
+          worker.onmessage = function(e) {
+              console.log(e.data);
+              document.write(e.data);
+          };
+        
+      }
+    </script>
+</html>
